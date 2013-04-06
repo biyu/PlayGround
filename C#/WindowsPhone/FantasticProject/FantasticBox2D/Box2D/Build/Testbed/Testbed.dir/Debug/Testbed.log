@@ -1,0 +1,19 @@
+﻿Build started 11/21/2012 11:21:08 AM.
+     1>Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Testbed.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D /nologo /W1 /WX- /O2 /Oy- /D FREEGLUT_EXPORTS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Testbed.dir\Debug\\" /Fd"C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Testbed\Framework\Main.cpp
+         Main.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Debug\Testbed.exe" /INCREMENTAL /NOLOGO ..\Box2D\Debug\Box2D.lib ..\freeglut\Debug\freeglut_static.lib ..\glui\Debug\glui.lib "-lglu32.lib" "-lopengl32.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.lib" /MACHINE:X86 /SAFESEH Testbed.dir\Debug\Main.obj
+         Testbed.dir\Debug\Render.obj
+         Testbed.dir\Debug\Test.obj
+         Testbed.dir\Debug\TestEntries.obj
+     1>LINK : warning LNK4044: unrecognized option '/lglu32.lib'; ignored
+     1>LINK : warning LNK4044: unrecognized option '/lopengl32.lib'; ignored
+         Testbed.vcxproj -> C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Debug\Testbed.exe
+     1>Done Building Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Testbed.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.16

@@ -1,0 +1,102 @@
+﻿Build started 11/21/2012 11:16:19 AM.
+     1>Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\glui\glui.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/glui/../freeglut /nologo /W1 /WX- /O2 /Oy- /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"glui.dir\Debug\\" /Fd"C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/glui/Debug/glui.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\glui\glui_add_controls.cpp ..\..\glui\glui_bitmaps.cpp ..\..\glui\glui_button.cpp ..\..\glui\glui_checkbox.cpp ..\..\glui\glui_column.cpp ..\..\glui\glui_commandline.cpp ..\..\glui\glui_control.cpp ..\..\glui\glui_edittext.cpp ..\..\glui\glui_filebrowser.cpp ..\..\glui\glui_list.cpp ..\..\glui\glui_listbox.cpp ..\..\glui\glui_mouse_iaction.cpp ..\..\glui\glui_node.cpp ..\..\glui\glui_panel.cpp ..\..\glui\glui_radio.cpp ..\..\glui\glui_rollout.cpp ..\..\glui\glui_rotation.cpp ..\..\glui\glui_scrollbar.cpp ..\..\glui\glui_separator.cpp ..\..\glui\glui_spinner.cpp ..\..\glui\glui_statictext.cpp ..\..\glui\glui_string.cpp ..\..\glui\glui_textbox.cpp ..\..\glui\glui_translation.cpp ..\..\glui\glui_tree.cpp ..\..\glui\glui_treepanel.cpp ..\..\glui\glui_window.cpp ..\..\glui\glui.cpp
+         glui_add_controls.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_bitmaps.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_button.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_checkbox.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_column.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_commandline.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_control.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_edittext.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_filebrowser.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_list.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_listbox.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_mouse_iaction.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_node.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_panel.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_radio.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_rollout.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_rotation.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_scrollbar.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_separator.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_spinner.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         Generating Code...
+         Compiling...
+         glui_statictext.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_string.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_textbox.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_translation.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_tree.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_treepanel.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui_window.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         glui.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xlocale(336): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\glui\Debug\glui.lib" /NOLOGO glui.dir\Debug\algebra3.obj
+         glui.dir\Debug\arcball.obj
+         glui.dir\Debug\glui_add_controls.obj
+         glui.dir\Debug\glui_bitmap_img_data.obj
+         glui.dir\Debug\glui_bitmaps.obj
+         glui.dir\Debug\glui_button.obj
+         glui.dir\Debug\glui_checkbox.obj
+         glui.dir\Debug\glui_column.obj
+         glui.dir\Debug\glui_commandline.obj
+         glui.dir\Debug\glui_control.obj
+         glui.dir\Debug\glui_edittext.obj
+         glui.dir\Debug\glui_filebrowser.obj
+         glui.dir\Debug\glui_list.obj
+         glui.dir\Debug\glui_listbox.obj
+         glui.dir\Debug\glui_mouse_iaction.obj
+         glui.dir\Debug\glui_node.obj
+         glui.dir\Debug\glui_panel.obj
+         glui.dir\Debug\glui_radio.obj
+         glui.dir\Debug\glui_rollout.obj
+         glui.dir\Debug\glui_rotation.obj
+         glui.dir\Debug\glui_scrollbar.obj
+         glui.dir\Debug\glui_separator.obj
+         glui.dir\Debug\glui_spinner.obj
+         glui.dir\Debug\glui_statictext.obj
+         glui.dir\Debug\glui_string.obj
+         glui.dir\Debug\glui_textbox.obj
+         glui.dir\Debug\glui_translation.obj
+         glui.dir\Debug\glui_tree.obj
+         glui.dir\Debug\glui_treepanel.obj
+         glui.dir\Debug\glui_window.obj
+         glui.dir\Debug\glui.obj
+         glui.dir\Debug\quaternion.obj
+         glui.vcxproj -> C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\glui\Debug\glui.lib
+     1>Done Building Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\glui\glui.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:18.92

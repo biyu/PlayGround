@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="FantasticProject.Controls.ShowMoreDetailButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:FantasticProject.Utils"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480"
+    Name="this">
+
+    <Border x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding ElementName=this}"
+            Width="450">
+        <!-- VisualStateManager MUST be defined in LayoutRoot element, 
+        not in UserControl (Can't access element in RootElement) -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ExpendStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition To="NotExpend">
+                        <Storyboard Duration="0:0:2.0">
+                            <!-- "From" value is necessary for DoubleAnimation -->
+                            <DoubleAnimation Storyboard.TargetName="DetailTextBlock"
+                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                             From="1.0" To="0.0" SpeedRatio="1"/>
+                            <ColorAnimation Storyboard.TargetName="Outline"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="Transparent" SpeedRatio="0.5"/>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition From="NotExpend" To="Expend" >
+                        <Storyboard Duration="0:0:2.0">
+                            <ColorAnimation Storyboard.TargetName="Outline"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="Purple" SpeedRatio="1"/>
+                            <DoubleAnimation Storyboard.TargetName="DetailTextBlock"
+                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                             From="0.0" To="1.0" SpeedRatio="0.5"/>
+                            </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualStateGroup.States>
+                    <!-- hide detail content -->
+                    <VisualState x:Name="NotExpend">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Outline"
+                                                           Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Color>Transparent</Color>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DetailTextBlock"
+                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Collapsed</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <!-- show detail content -->
+                    <VisualState x:Name="Expend">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Outline"
+                                                           Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Color>Purple</Color>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DetailTextBlock"
+                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup.States>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <!-- outline border -->
+        <Border Name="Outline"  Background="Transparent" BorderBrush="Transparent" BorderThickness="4" CornerRadius="20">
+            <Grid Name="Container" Background="Transparent">     
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- text content of button -->
+                <TextBlock Name="ContentTextBlock" Text="{Binding ContentText}"
+                           TextAlignment="Center" FontSize="40"
+                           Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                           Grid.Row="0" Grid.Column="0" />
+                <!-- detail button -->
+                <ToggleButton Name="DetailButton" Content="Details"
+                                                  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"
+                                                  Grid.Row="0" Grid.Column="1"/>
+                <!-- description text of button -->
+                <TextBlock Name="DetailTextBlock" Text="{Binding DetailText}"
+                           Foreground="Gold" TextWrapping="Wrap" Margin="10,10,10,10"
+                           HorizontalAlignment="Stretch"
+                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+            </Grid>
+        </Border>
+    </Border>
+</UserControl>

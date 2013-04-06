@@ -1,0 +1,19 @@
+Kart Demo
+
+1. Introduction:
+
+This is a demo of using Box2D physics engine in Qt. The development environment of this software is Ubuntu/Linux.
+
+2. Notice:
+
+PLEASE first recompile the Box2D static library, which can be found in folder "./Box2D", if you want to run this Demo App in Windows or Mac OS.
+
+Recommand OS is Linux/Ubuntu with Qt 4.6.
+
+Example Command: "cd ./Box2D" -> "qmake" -> "make"
+
+3. How to Play?
+
+Use left and right arrow keys to race the kart. Use 'R' key to Reset the kart if it can not move anymore :P.
+
+

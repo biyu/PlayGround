@@ -1,0 +1,63 @@
+﻿Build started 11/21/2012 11:16:19 AM.
+     1>Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\freeglut\freeglut_static.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/freeglut/. /nologo /W1 /WX- /O2 /Oy- /D FREEGLUT_EXPORTS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"freeglut_static.dir\Debug\\" /Fd"C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/freeglut/Debug/freeglut_static.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\freeglut\freeglut_callbacks.c ..\..\freeglut\freeglut_cursor.c ..\..\freeglut\freeglut_display.c ..\..\freeglut\freeglut_ext.c ..\..\freeglut\freeglut_font_data.c ..\..\freeglut\freeglut_font.c ..\..\freeglut\freeglut_gamemode.c ..\..\freeglut\freeglut_geometry.c ..\..\freeglut\freeglut_glutfont_definitions.c ..\..\freeglut\freeglut_init.c ..\..\freeglut\freeglut_input_devices.c ..\..\freeglut\freeglut_joystick.c ..\..\freeglut\freeglut_main.c ..\..\freeglut\freeglut_menu.c ..\..\freeglut\freeglut_misc.c ..\..\freeglut\freeglut_overlay.c ..\..\freeglut\freeglut_spaceball.c ..\..\freeglut\freeglut_state.c ..\..\freeglut\freeglut_stroke_mono_roman.c ..\..\freeglut\freeglut_stroke_roman.c ..\..\freeglut\freeglut_structure.c ..\..\freeglut\freeglut_teapot.c ..\..\freeglut\freeglut_videoresize.c ..\..\freeglut\freeglut_window.c
+         freeglut_callbacks.c
+         freeglut_cursor.c
+         freeglut_display.c
+         freeglut_ext.c
+         freeglut_font_data.c
+         freeglut_font.c
+         freeglut_gamemode.c
+         freeglut_geometry.c
+         freeglut_glutfont_definitions.c
+         freeglut_init.c
+         freeglut_input_devices.c
+         freeglut_joystick.c
+         freeglut_main.c
+         freeglut_menu.c
+         freeglut_misc.c
+         freeglut_overlay.c
+         freeglut_spaceball.c
+         freeglut_state.c
+         freeglut_stroke_mono_roman.c
+         freeglut_stroke_roman.c
+         Generating Code...
+         Compiling...
+         freeglut_structure.c
+         freeglut_teapot.c
+         freeglut_videoresize.c
+         freeglut_window.c
+         fgSetupPixelFormat(): there is still some work to do here!
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\freeglut\Debug\freeglut_static.lib" /NOLOGO freeglut_static.dir\Debug\freeglut_callbacks.obj
+         freeglut_static.dir\Debug\freeglut_cursor.obj
+         freeglut_static.dir\Debug\freeglut_display.obj
+         freeglut_static.dir\Debug\freeglut_ext.obj
+         freeglut_static.dir\Debug\freeglut_font_data.obj
+         freeglut_static.dir\Debug\freeglut_font.obj
+         freeglut_static.dir\Debug\freeglut_gamemode.obj
+         freeglut_static.dir\Debug\freeglut_geometry.obj
+         freeglut_static.dir\Debug\freeglut_glutfont_definitions.obj
+         freeglut_static.dir\Debug\freeglut_init.obj
+         freeglut_static.dir\Debug\freeglut_input_devices.obj
+         freeglut_static.dir\Debug\freeglut_joystick.obj
+         freeglut_static.dir\Debug\freeglut_main.obj
+         freeglut_static.dir\Debug\freeglut_menu.obj
+         freeglut_static.dir\Debug\freeglut_misc.obj
+         freeglut_static.dir\Debug\freeglut_overlay.obj
+         freeglut_static.dir\Debug\freeglut_spaceball.obj
+         freeglut_static.dir\Debug\freeglut_state.obj
+         freeglut_static.dir\Debug\freeglut_stroke_mono_roman.obj
+         freeglut_static.dir\Debug\freeglut_stroke_roman.obj
+         freeglut_static.dir\Debug\freeglut_structure.obj
+         freeglut_static.dir\Debug\freeglut_teapot.obj
+         freeglut_static.dir\Debug\freeglut_videoresize.obj
+         freeglut_static.dir\Debug\freeglut_window.obj
+         freeglut_static.vcxproj -> C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\freeglut\Debug\freeglut_static.lib
+     1>Done Building Project "C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\freeglut\freeglut_static.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.13

@@ -1,0 +1,4 @@
+#ifndef CUMOTEXTLINE_H
+#define CUMOTEXTLINE_H
+
+#endif // CUMOTEXTLINE_H

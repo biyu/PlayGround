@@ -1,0 +1,46 @@
+﻿Build started 12/2/2012 5:38:56 PM.
+     1>Project "C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\DirectXTex_Windows8.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\ /I"Generated Files\\" /IDebug\ /Zi /ZW /ZW:nostdlib /nologo /W4 /WX- /sdl /MP /Od /Oi /Oy- /D _UNICODE /D UNICODE /D _DEBUG /D _LIB /D DXGI_1_2_FORMATS /D _UNICODE /D UNICODE /D WINAPI_FAMILY=WINAPI_FAMILY_APP /Gm- /EHsc /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp /Yc"DirectXTexP.h" /Fp"Debug\DirectXTex.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.VCLibs\11.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\Windows.winmd" /analyze- /errorReport:prompt  DirectXTexUtil.cpp
+         DirectXTexUtil.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\ /I"Generated Files\\" /IDebug\ /Zi /ZW /ZW:nostdlib /nologo /W4 /WX- /sdl /MP /Od /Oi /Oy- /D _UNICODE /D UNICODE /D _DEBUG /D _LIB /D DXGI_1_2_FORMATS /D _UNICODE /D UNICODE /D WINAPI_FAMILY=WINAPI_FAMILY_APP /Gm- /EHsc /RTC1 /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp /Yu"DirectXTexP.h" /Fp"Debug\DirectXTex.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.VCLibs\11.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\Windows.winmd" /analyze- /errorReport:prompt  BC.cpp BC4BC5.cpp BC6HBC7.cpp DirectXTexCompress.cpp DirectXTexConvert.cpp DirectXTexD3D11.cpp DirectXTexDDS.cpp DirectXTexFlipRotate.cpp DirectXTexImage.cpp DirectXTexMipMaps.cpp DirectXTexMisc.cpp DirectXTexNormalMaps.cpp DirectXTexResize.cpp DirectXTexTGA.cpp DirectXTexWIC.cpp
+         BC.cpp
+         BC4BC5.cpp
+         BC6HBC7.cpp
+         DirectXTexCompress.cpp
+         DirectXTexConvert.cpp
+         DirectXTexD3D11.cpp
+         DirectXTexDDS.cpp
+         DirectXTexFlipRotate.cpp
+         DirectXTexImage.cpp
+         DirectXTexMipMaps.cpp
+         DirectXTexMisc.cpp
+         DirectXTexNormalMaps.cpp
+         DirectXTexResize.cpp
+         DirectXTexTGA.cpp
+         DirectXTexWIC.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\Debug\DirectXTex_Windows8\DirectXTex.lib" /NOLOGO /IGNORE:4264 Debug\BC.obj
+         Debug\BC4BC5.obj
+         Debug\BC6HBC7.obj
+         Debug\DirectXTexCompress.obj
+         Debug\DirectXTexConvert.obj
+         Debug\DirectXTexD3D11.obj
+         Debug\DirectXTexDDS.obj
+         Debug\DirectXTexFlipRotate.obj
+         Debug\DirectXTexImage.obj
+         Debug\DirectXTexMipMaps.obj
+         Debug\DirectXTexMisc.obj
+         Debug\DirectXTexNormalMaps.obj
+         Debug\DirectXTexResize.obj
+         Debug\DirectXTexTGA.obj
+         Debug\DirectXTexUtil.obj
+         Debug\DirectXTexWIC.obj
+         DirectXTex_Windows8.vcxproj -> C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\Debug\DirectXTex_Windows8\DirectXTex.lib
+       _GenerateProjectPriFileCore:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\MakePri.exe New -ProjectRoot C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\ -ConfigXml Debug\priconfig.xml -OutputFile C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\Debug\DirectXTex_Windows8\DirectXTex.pri -IndexName DirectXTex -Verbose -Overwrite  
+     1>Done Building Project "C:\Users\b14yu.NOE\Downloads\DirectXTex\DirectXTex\DirectXTex_Windows8.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.00

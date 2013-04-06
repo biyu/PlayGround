@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{1D8246DD-C8E6-42A7-B67C-DB47C2A726CC}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Testbed</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Testbed.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Testbed</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Testbed.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Testbed</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>FREEGLUT_EXPORTS;FREEGLUT_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>FREEGLUT_EXPORTS;FREEGLUT_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>;..\Box2D\Debug\Box2D.lib;..\freeglut\Debug\freeglut_static.lib;..\glui\Debug\glui.lib;-lglu32.lib;-lopengl32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Debug/Testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>FREEGLUT_EXPORTS;FREEGLUT_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Release/Testbed.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>FREEGLUT_EXPORTS;FREEGLUT_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>;..\Box2D\Release\Box2D.lib;..\freeglut\Release\freeglut_static.lib;..\glui\Release\glui.lib;-lglu32.lib;-lopengl32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Release/Testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Testbed/Release/Testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Testbed\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D -BC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build --check-stamp-file C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Testbed/CMakeLists.txt;C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Testbed\CMakeLists.txt;C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Testbed\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D -BC:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build --check-stamp-file C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Testbed/CMakeLists.txt;C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Testbed\CMakeLists.txt;C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Testbed\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\b14yu.NOE\Desktop\Box2D_v2.2.0\Box2D_v2.2.0\Box2D\Build\Testbed\CMakeFiles\generate.stamp</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Testbed\Framework\Render.h" />
+    <ClInclude Include="..\..\Testbed\Framework\Test.h" />
+    <ClInclude Include="..\..\Testbed\Tests\AddPair.h" />
+    <ClInclude Include="..\..\Testbed\Tests\ApplyForce.h" />
+    <ClInclude Include="..\..\Testbed\Tests\BodyTypes.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Breakable.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Bridge.h" />
+    <ClInclude Include="..\..\Testbed\Tests\BulletTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Cantilever.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Car.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Chain.h" />
+    <ClInclude Include="..\..\Testbed\Tests\CharacterCollision.h" />
+    <ClInclude Include="..\..\Testbed\Tests\CollisionFiltering.h" />
+    <ClInclude Include="..\..\Testbed\Tests\CollisionProcessing.h" />
+    <ClInclude Include="..\..\Testbed\Tests\CompoundShapes.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Confined.h" />
+    <ClInclude Include="..\..\Testbed\Tests\ContinuousTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\DistanceTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Dominos.h" />
+    <ClInclude Include="..\..\Testbed\Tests\DynamicTreeTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\EdgeShapes.h" />
+    <ClInclude Include="..\..\Testbed\Tests\EdgeTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Gears.h" />
+    <ClInclude Include="..\..\Testbed\Tests\OneSidedPlatform.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Pinball.h" />
+    <ClInclude Include="..\..\Testbed\Tests\PolyCollision.h" />
+    <ClInclude Include="..\..\Testbed\Tests\PolyShapes.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Prismatic.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Pulleys.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Pyramid.h" />
+    <ClInclude Include="..\..\Testbed\Tests\RayCast.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Revolute.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Rope.h" />
+    <ClInclude Include="..\..\Testbed\Tests\RopeJoint.h" />
+    <ClInclude Include="..\..\Testbed\Tests\SensorTest.h" />
+    <ClInclude Include="..\..\Testbed\Tests\ShapeEditing.h" />
+    <ClInclude Include="..\..\Testbed\Tests\SliderCrank.h" />
+    <ClInclude Include="..\..\Testbed\Tests\SphereStack.h" />
+    <ClInclude Include="..\..\Testbed\Tests\TheoJansen.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Tiles.h" />
+    <ClInclude Include="..\..\Testbed\Tests\TimeOfImpact.h" />
+    <ClInclude Include="..\..\Testbed\Tests\VaryingFriction.h" />
+    <ClInclude Include="..\..\Testbed\Tests\VaryingRestitution.h" />
+    <ClInclude Include="..\..\Testbed\Tests\VerticalStack.h" />
+    <ClInclude Include="..\..\Testbed\Tests\Web.h" />
+    <ClCompile Include="..\..\Testbed\Framework\Main.cpp"  />
+    <ClCompile Include="..\..\Testbed\Framework\Render.cpp"  />
+    <ClCompile Include="..\..\Testbed\Framework\Test.cpp"  />
+    <ClCompile Include="..\..\Testbed\Tests\TestEntries.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/Box2D/Box2D.vcxproj">
+      <Project>2A032C8F-09B2-4117-9499-7F1FD0D4A504</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/ZERO_CHECK.vcxproj">
+      <Project>4417DF3C-EA61-45B2-9899-002C09BEB208</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/freeglut/freeglut_static.vcxproj">
+      <Project>8D57F1AE-C0F7-4F11-A155-C1D43BCDFF94</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/Users/b14yu.NOE/Desktop/Box2D_v2.2.0/Box2D_v2.2.0/Box2D/Build/glui/glui.vcxproj">
+      <Project>CED68735-1158-4FAF-8D6C-26D4BC452666</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

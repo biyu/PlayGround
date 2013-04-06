@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/DestinationPicker.qml</file>
+        <file>qml/QuickRoutePlanPage.qml</file>
+        <file>qml/Constants.js</file>
+        <file>qml/StartPointPicker.qml</file>
+        <file>qml/SoundEffects/scrolleffect.wav</file>
+        <file>qml/SelectButton.qml</file>
+        <file>qml/RouteResultPage.qml</file>
+        <file>qml/RouteResultList.qml</file>
+        <file>qml/Locator.qml</file>
+        <file>qml/Core.js</file>
+        <file>qml/CoreHelper.js</file>
+        <file>qml/RouteResultListLoader.js</file>
+        <file>qml/Images/bus.gif</file>
+        <file>qml/Images/metro.gif</file>
+        <file>qml/Images/walk.gif</file>
+        <file>qml/Images/tram.gif</file>
+        <file>qml/Images/train.gif</file>
+        <file>qml/NewDestinationSheet.qml</file>
+        <file>qml/LineEdit.qml</file>
+        <file>qml/Switcher.qml</file>
+        <file>qml/NotifyBanner.qml</file>
+        <file>qml/Database.js</file>
+        <file>qml/LoadIndicator.qml</file>
+        <file>qml/StartPointSelectPage.qml</file>
+    </qresource>
+</RCC>
