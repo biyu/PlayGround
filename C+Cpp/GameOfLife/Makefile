@@ -15,7 +15,7 @@ all: $(PROGS)
 .c.o:
 	$(CC) $(CFLAGS) $(LDFLAGS) -c $<
 
-remote_proxy: gol.o
+gol: gol.o
 	$(CC) $(CFLAGS) gol.o $(LDFLAGS) -o gol
 	@echo "program built ... OK!"
 
