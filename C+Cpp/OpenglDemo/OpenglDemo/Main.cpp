@@ -12,9 +12,9 @@ int main(int argc, char** argv)
 	scene->init(argc, argv);
 	// debug
 	DemoBoxObject* testObj;
-	testObj = (DemoBoxObject*)scene->CreateDemoObject(DemoScene::Box, -1.5f, 0.0f, -2.0f);
+	testObj = (DemoBoxObject*)scene->createDemoObject(DemoScene::Box, -1.5f, 0.0f, -2.0f);
 	testObj->setDX(2.0f);
-	scene->CreateDemoObject(DemoScene::Box, 1.5f, 0.0f, -4.0f);
+	scene->createDemoObject(DemoScene::Box, 1.5f, 0.0f, -4.0f);
 
 	scene->startRender();
 	return 0;

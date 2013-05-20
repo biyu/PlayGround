@@ -8,7 +8,11 @@ public:
 		: _x(x), _y(y), _z(z),
 		_roll(0.0f), _pitch(0.0f), _yaw(0.0f),
 		_rollSpd(0.0f), _pitchSpd(0.0f), _yawSpd(0.0f)
-	{ }
+	{
+		// TODO: find a better way to handle object id
+		static unsigned int currentId = 100;
+		this->_id = currentId++;
+	}
 	~DemoSceneObject() { }
 
 public:	// getter and setter
@@ -21,7 +25,8 @@ public:	// getter and setter
 	float getRollSpd() const { return this->_rollSpd; }
 	float getPitchSpd() const { return this->_pitchSpd; }
 	float getYawSpd() const { return this->_yawSpd; }
-
+	unsigned int getId() const { return this->_id; }
+	
 	void setX(float newX) { this->_x = newX; }
 	void setY(float newY) { this->_y = newY; }
 	void setZ(float newZ) { this->_z = newZ; }
@@ -40,6 +45,7 @@ protected:
 	float _x, _y, _z;
 	float _roll, _pitch, _yaw;
 	float _rollSpd, _pitchSpd, _yawSpd;
+	unsigned int _id;
 };
 
 #endif // !DEMORENDEREROBJECT_H

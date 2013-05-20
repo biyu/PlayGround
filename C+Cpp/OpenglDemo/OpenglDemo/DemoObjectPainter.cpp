@@ -14,6 +14,8 @@ void DemoObjectPainter::drawBox(float x, float y, float z,
 								float dx, float dy, float dz,
 								float roll, float pitch, float yaw)
 {
+	// NOTICE: manually create 3d box instead of using glut api
+	// TODO: can be changed by using glutSolidCube()
 	glPushMatrix();
 
 	glTranslatef(x, y, z);
