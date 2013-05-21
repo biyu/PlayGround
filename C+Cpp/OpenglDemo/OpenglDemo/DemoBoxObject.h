@@ -2,13 +2,14 @@
 #define DEMOBOXOBJECT_H
 
 #include "DemoSceneObject.h"
+#include "IDemoClickableObject.h"
 
 class DemoObjectPainter;
 
-class DemoBoxObject : public DemoSceneObject
+class DemoBoxObject : public DemoSceneObject, public IDemoClickableObject
 {
 public:
-	DemoBoxObject(float x=0.0f, float y=0.0f, float z=0.0f,
+	DemoBoxObject(DemoScene* parent, float x=0.0f, float y=0.0f, float z=0.0f,
 		float dx=1.0f, float dy=1.0f, float dz=1.0f);
 	~DemoBoxObject();
 
@@ -21,9 +22,15 @@ public:
 	void setDY(float newDY) { this->_dy = newDY; }
 	void setDZ(float newDZ) { this->_dz = newDZ; }
 
-public:	// override pure virtual funcs
+public:
+	// override pure virtual funcs of DemoSceneObject
 	virtual void render();
 	virtual void update();
+
+	// override pure virtual funcs of IDemoClickableObject interface
+	virtual void onPressed();
+	virtual void onReleased();	
+	virtual void onHover() { }
 
 private:
 	// box specific members
@@ -32,7 +39,7 @@ private:
 	float _dz;	// half lenght in z
 
 	bool _isClockwise;
-	DemoObjectPainter* _objectPainter;
+	DemoObjectPainter* _painter;
 };
 
 #endif // !DEMOBOXOBJECT_H

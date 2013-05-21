@@ -10,11 +10,10 @@ int main(int argc, char** argv)
 	DemoScene* scene = DemoScene::instance();
 	scene->setWindowGeo(0,0,1000,800);
 	scene->init(argc, argv);
-	// debug
-	DemoBoxObject* testObj;
-	testObj = (DemoBoxObject*)scene->createDemoObject(DemoScene::Box, -1.5f, 0.0f, -2.0f);
-	testObj->setDX(2.0f);
-	scene->createDemoObject(DemoScene::Box, 1.5f, 0.0f, -4.0f);
+
+	// create button
+	DemoBoxObject* button = (DemoBoxObject*)scene->createDemoObject(DemoScene::Button, 0.0f, -8.0f, -2.0f);
+	button->setDX(2.0f);
 
 	scene->startRender();
 	return 0;

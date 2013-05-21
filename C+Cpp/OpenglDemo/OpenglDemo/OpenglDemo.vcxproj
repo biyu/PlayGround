@@ -12,13 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DemoBoxObject.cpp" />
+    <ClCompile Include="DemoButtonObject.cpp" />
     <ClCompile Include="DemoObjectPainter.cpp" />
     <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoBoxObject.h" />
-    <ClInclude Include="DemoClickableObject.h" />
+    <ClInclude Include="DemoButtonObject.h" />
+    <ClInclude Include="IDemoClickableObject.h" />
     <ClInclude Include="DemoObjectPainter.h" />
     <ClInclude Include="DemoScene.h" />
     <ClInclude Include="DemoSceneObject.h" />

@@ -4,24 +4,24 @@
 #define BUFSIZE 512
 
 #include <vector>
+#include <map>
 
 class DemoSceneObject;
+class IDemoClickableObject;
 
 class DemoScene
 {
 public:
 	enum DemoSceneObjectType
 	{
-		Box
+		Box,
+		Button
 		// add more supported type
 	};
 
 private:
-	enum DemoSceneMode
-	{
-		Render,
-		Select
-	};
+	enum DemoSceneMode { Render, Select };
+	enum DemoSceneMouseState { MouseDown, MouseUp };
 
 public:
 	static DemoScene* instance();
@@ -35,6 +35,7 @@ public:
 
 public:	// factory methods
 	DemoSceneObject* createDemoObject(DemoSceneObjectType type, float x=0.0f, float y=0.0f, float z=0.0f);
+	void removeDemoObject(DemoSceneObject* object);
 
 private:
 	DemoScene();	// singleton
@@ -50,13 +51,12 @@ private:
 	void drawScene();
 
 	void addObjectToScene(DemoSceneObject* sceneObject);
-	void removeObjectFromSceneById(unsigned int objectId);
 	void removeLastObjectFromScene();
+	DemoSceneObject* getObjectById(unsigned int id);
 
 	void startPicking(int cursorX, int cursorY);
 	unsigned int stopPicking();
 	void processPicking(unsigned int pickedId);
-	void handleObjectClicked(unsigned int clickedObjectId);
 
 private:	// static methods
 	static void renderScene();
@@ -71,13 +71,16 @@ private:	// private members
 	int _windowWidth;
 	int _windowHeight;
 	float _windowRatio;
+
 	// for picking
 	unsigned int _selectBuf[BUFSIZE];
-	DemoSceneMode _mode;
 	int _mouseCursorX;
 	int _mouseCursorY;
+	DemoSceneMode _mode;
+	DemoSceneMouseState _mouseState;
+	IDemoClickableObject* _selectedChild;
 
-	static std::vector<DemoSceneObject* > _renderObjects;
+	static std::map<unsigned int, DemoSceneObject* > _childrens;
 	static DemoScene* _instance;
 };
 

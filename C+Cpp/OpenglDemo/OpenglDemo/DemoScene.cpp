@@ -1,28 +1,32 @@
-#include "DemoScene.h"
 #include "DemoBoxObject.h"
+#include "DemoButtonObject.h"
+#include "DemoScene.h"
+#include "IDemoClickableObject.h"
 #include <GL\glut.h>	// define after "stdlib"
 #include <iostream>
 
-std::vector<DemoSceneObject* > DemoScene::_renderObjects;
+std::map<unsigned int, DemoSceneObject* > DemoScene::_childrens;
 DemoScene* DemoScene::_instance = NULL;
 
 // TODO: make this class as singleton
 DemoScene::DemoScene() 
 	: _windowX(0), _windowY(0), 
 	_windowWidth(0), _windowHeight(0), _windowRatio(0.0f),
-	_mode(DemoScene::Render), _mouseCursorX(0), _mouseCursorY(0)
+	_mouseCursorX(0), _mouseCursorY(0),
+	_mode(DemoScene::Render), _mouseState(DemoScene::MouseUp),
+	_selectedChild(0)
 {
 }
 
 DemoScene::~DemoScene()
 {
 	// clean all scene objects
-	for(std::vector<DemoSceneObject*>::iterator rit = DemoScene::_renderObjects.begin(); rit != DemoScene::_renderObjects.end();)
+	for(std::map<unsigned int, DemoSceneObject*>::iterator rit = DemoScene::_childrens.begin(); rit != DemoScene::_childrens.end(); rit++)
 	{
-		DemoSceneObject* object = *rit;
-		delete *rit;
-		rit = this->_renderObjects.erase(rit);
+		DemoSceneObject* object = rit->second;
+		delete object;
 	}
+	this->_childrens.clear();
 }
 
 DemoScene* DemoScene::instance()
@@ -118,9 +122,9 @@ void DemoScene::drawScene()
 {
 	// picking
 	glInitNames();
-	for (std::vector<DemoSceneObject*>::iterator rit = DemoScene::_renderObjects.begin(); rit != DemoScene::_renderObjects.end(); ++rit)
+	for (std::map<unsigned int, DemoSceneObject*>::iterator rit = DemoScene::_childrens.begin(); rit != DemoScene::_childrens.end(); ++rit)
 	{
-		DemoSceneObject* renderObject = *rit;
+		DemoSceneObject* renderObject = rit->second;
 		glPushName(renderObject->getId());
 		renderObject->render();
 		glPopName();
@@ -148,9 +152,9 @@ void DemoScene::sceneResize(int width, int height)
 
 void DemoScene::updateScene()
 {
-	for (std::vector<DemoSceneObject*>::iterator rit = DemoScene::_renderObjects.begin(); rit != DemoScene::_renderObjects.end(); ++rit)
+	for (std::map<unsigned int, DemoSceneObject*>::iterator rit = DemoScene::_childrens.begin(); rit != DemoScene::_childrens.end(); ++rit)
 	{
-		DemoSceneObject* renderObject = *rit;
+		DemoSceneObject* renderObject = rit->second;
 		renderObject->update();
 	}
 	DemoScene::renderScene();
@@ -174,13 +178,23 @@ void DemoScene::processNormalKeys(unsigned char key, int x, int y)
 void DemoScene::handleMouseEvent(int button, int state, int x, int y)
 {
 	DemoScene* scene = DemoScene::instance();
-	if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
+	if (button != GLUT_LEFT_BUTTON)
 		return;
-
+	switch (state)
+	{
+	case GLUT_DOWN:
+		scene->_mouseState = DemoScene::MouseDown;
+		break;
+	case GLUT_UP:
+		scene->_mouseState = DemoScene::MouseUp;
+		break;
+	default:
+		scene->_mouseState = DemoScene::MouseUp;
+		break;
+	}
 	scene->_mouseCursorX = x;
 	scene->_mouseCursorY = y;
 	scene->_mode = DemoScene::Select;
-
 	glutPostRedisplay(); 
 }
 
@@ -218,14 +232,40 @@ unsigned int DemoScene::stopPicking()
 
 void DemoScene::processPicking(unsigned int pickedId)
 {
-	// TODO: handle different mouse actions here on picked object
-	if (pickedId != 0)
-		this->handleObjectClicked(pickedId);
-}
+	if (pickedId == 0)
+	{
+		// if mouse up outside any object, check selected object cache
+		if (this->_selectedChild != NULL
+			&& this->_mouseState == DemoScene::MouseUp)
+		{
+			this->_selectedChild->onReleased();
+			this->_selectedChild = NULL;
+		}
+		return;
+	}
 
-void DemoScene::handleObjectClicked(unsigned int clickedObjectId)
-{
-	removeObjectFromSceneById(clickedObjectId);
+	// get object by object id
+	DemoSceneObject* object = this->getObjectById(pickedId);
+	if(object == NULL)
+		return;
+	// check if object is clickable or not
+	IDemoClickableObject* clickableObject = dynamic_cast<IDemoClickableObject*>(object);
+	if(clickableObject == NULL)
+		return;
+
+	// TODO: handle different mouse actions here on picked object
+	switch (this->_mouseState)
+	{
+	case DemoScene::MouseDown:
+		clickableObject->onPressed();
+		this->_selectedChild = clickableObject;
+		break;
+	case DemoScene::MouseUp:
+		if(this->_selectedChild != NULL)
+			this->_selectedChild->onReleased();
+		this->_selectedChild = NULL;
+		break;
+	}
 }
 
 DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, float y, float z)
@@ -234,7 +274,10 @@ DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, 
 	switch (type)
 	{
 	case DemoScene::Box:
-		sceneObject = new DemoBoxObject(x, y, z); 
+		sceneObject = new DemoBoxObject(this, x, y, z); 
+		break;
+	case DemoScene::Button:
+		sceneObject = new DemoButtonObject(this, x, y, z);
 		break;
 	default:
 		return NULL;
@@ -244,35 +287,41 @@ DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, 
 	return sceneObject;
 }
 
-void DemoScene::addObjectToScene(DemoSceneObject* renderObject)
+void DemoScene::removeDemoObject(DemoSceneObject* object)
 {
-	this->_renderObjects.push_back(renderObject);
-}
-
-void DemoScene::removeObjectFromSceneById(unsigned int objectId)
-{
-	if (this->_renderObjects.size() == 0)
+	if (this->_childrens.empty()
+		|| object == NULL)
 		return;
 
-	for(std::vector<DemoSceneObject*>::iterator rit = DemoScene::_renderObjects.begin(); rit != DemoScene::_renderObjects.end();)
+	std::map<unsigned int, DemoSceneObject* >::iterator object_it = this->_childrens.find(object->getId());
+	if(object_it != this->_childrens.end())
 	{
-		DemoSceneObject* object = *rit;
-		if (object->getId() == objectId)
-		{
-			delete *rit;
-			rit = this->_renderObjects.erase(rit);
-		}
-		else
-		{
-			rit++;
-		}
+		delete object_it->second;
+		this->_childrens.erase(object_it);
 	}
+}
+
+void DemoScene::addObjectToScene(DemoSceneObject* renderObject)
+{
+	if(renderObject == NULL)
+		return;
+	this->_childrens.insert(std::pair<unsigned int, DemoSceneObject*>(renderObject->getId(), renderObject));
 }
 
 // for test use
 void DemoScene::removeLastObjectFromScene()
 {
-	if(this->_renderObjects.size() == 0)
+	if(this->_childrens.empty())
 		return;
-	this->removeObjectFromSceneById((*(this->_renderObjects.end()-1))->getId());
+	this->removeDemoObject(this->_childrens.rbegin()->second);
+}
+
+DemoSceneObject* DemoScene::getObjectById(unsigned int id)
+{
+	std::map<unsigned int, DemoSceneObject* >::iterator object_it = this->_childrens.find(id);
+	if(object_it != this->_childrens.end())
+	{
+		return object_it->second;
+	}
+	return NULL;
 }

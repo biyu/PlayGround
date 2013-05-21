@@ -27,6 +27,9 @@
     <ClCompile Include="DemoObjectPainter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DemoButtonObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoBoxObject.h">
@@ -41,7 +44,10 @@
     <ClInclude Include="DemoObjectPainter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DemoClickableObject.h">
+    <ClInclude Include="IDemoClickableObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoButtonObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
