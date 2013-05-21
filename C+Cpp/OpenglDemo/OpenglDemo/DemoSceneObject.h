@@ -10,7 +10,7 @@ public:
 		: _x(x), _y(y), _z(z),
 		_roll(0.0f), _pitch(0.0f), _yaw(0.0f),
 		_rollSpd(0.0f), _pitchSpd(0.0f), _yawSpd(0.0f),
-		_parent(parent)
+		_scene(parent)
 	{
 		// TODO: find a better way to handle object id
 		static unsigned int currentId = 100;
@@ -49,7 +49,7 @@ protected:
 	float _roll, _pitch, _yaw;
 	float _rollSpd, _pitchSpd, _yawSpd;
 	unsigned int _id;
-	DemoScene* _parent;
+	DemoScene* _scene;
 };
 
 #endif // !DEMORENDEREROBJECT_H

@@ -44,7 +44,7 @@ void DemoBoxObject::onPressed()
 
 void DemoBoxObject::onReleased()
 {
-	DemoScene* parent = this->_parent;
+	DemoScene* parent = this->_scene;
 	if(parent == NULL)
 		return;
 	parent->removeDemoObject(this);

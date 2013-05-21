@@ -48,7 +48,7 @@ void DemoButtonObject::onPressed()
 void DemoButtonObject::onReleased()
 {
 	this->_isPressed = false;
-	this->_parent->createDemoObject(DemoScene::Box, rand()%20 * 1.0f - 10.0f, rand()%10 * 1.0f - 5.0f, -2.0f);
+	this->_scene->createDemoObject(DemoScene::Box, rand()%20 * 1.0f - 10.0f, rand()%10 * 1.0f - 5.0f, -2.0f);
 }
 
 void DemoButtonObject::onHover() 
