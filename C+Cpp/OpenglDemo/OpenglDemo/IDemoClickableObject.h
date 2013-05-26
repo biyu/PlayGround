@@ -6,9 +6,19 @@ class IDemoClickableObject
 {
 public:
 	virtual ~IDemoClickableObject() {}
-	virtual void onPressed() = 0;	// click event handler
-	virtual void onReleased() = 0;	
-	virtual void onHover() = 0;
+	virtual void onMousePressed() { this->_isMousePressed = true; }	// click event handler
+	virtual void onMouseReleased() { this->_isMousePressed = false; }	
+	virtual void onMouseOver() { this->_isMouseOver = true; }
+	virtual void onMouseLeft() { this->_isMouseOver = false; }
+
+	bool getMousePressed() const { return this->_isMousePressed; }
+	
+protected:
+	IDemoClickableObject() : _isMouseOver(false), _isMousePressed(false) {}
+
+protected:
+	bool _isMousePressed;
+	bool _isMouseOver;
 };
 
 #endif // !DEMOCLICKABLEOBJECT_H

@@ -15,11 +15,13 @@
     <ClCompile Include="DemoButtonObject.cpp" />
     <ClCompile Include="DemoObjectPainter.cpp" />
     <ClCompile Include="DemoScene.cpp" />
+    <ClCompile Include="DemoScenePickingRay.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoBoxObject.h" />
     <ClInclude Include="DemoButtonObject.h" />
+    <ClInclude Include="DemoScenePickingRay.h" />
     <ClInclude Include="IDemoClickableObject.h" />
     <ClInclude Include="DemoObjectPainter.h" />
     <ClInclude Include="DemoScene.h" />
@@ -67,7 +69,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\OpenGL\compiler needs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\glm;.\OpenGL\compiler needs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

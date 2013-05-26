@@ -5,9 +5,11 @@
 
 #include <vector>
 #include <map>
+#include "glm\glm.hpp"
 
 class DemoSceneObject;
 class IDemoClickableObject;
+class DemoScenePickingRay;
 
 class DemoScene
 {
@@ -20,7 +22,6 @@ public:
 	};
 
 private:
-	enum DemoSceneMode { Render, Select };
 	enum DemoSceneMouseState { MouseDown, MouseUp };
 
 public:
@@ -34,8 +35,11 @@ public:
 	void startRender(void);
 
 public:	// factory methods
+	DemoSceneObject* createDemoObject(DemoSceneObjectType type, glm::vec3 worldPos);
 	DemoSceneObject* createDemoObject(DemoSceneObjectType type, float x=0.0f, float y=0.0f, float z=0.0f);
 	void removeDemoObject(DemoSceneObject* object);
+
+	DemoScenePickingRay* getPickingRay();
 
 private:
 	DemoScene();	// singleton
@@ -53,9 +57,6 @@ private:
 	void addObjectToScene(DemoSceneObject* sceneObject);
 	void removeLastObjectFromScene();
 	DemoSceneObject* getObjectById(unsigned int id);
-
-	void startPicking(int cursorX, int cursorY);
-	unsigned int stopPicking();
 	void processPicking(unsigned int pickedId);
 
 private:	// static methods
@@ -64,21 +65,21 @@ private:	// static methods
 	static void updateScene();
 	static void processNormalKeys(unsigned char key, int x, int y);
 	static void handleMouseEvent(int button, int state, int x, int y);
+	static void handlePassiveMotionEvent(int x, int y);
 
 private:	// private members
-	int _windowX;
-	int _windowY;
-	int _windowWidth;
-	int _windowHeight;
+	int _windowX, _windowY;
+	int _windowWidth, _windowHeight;
 	float _windowRatio;
+	float _fovyAngle;	//field of view angle on y axis
+	float _nearClipPanelDist;	// the "distance" of near clip panel from viewer(camera)
+	float _farClipPanelDist;	// the "distance" of far clip panel from viewer(camera)
+	glm::vec3 _cameraPos, _cameraLookAt, _cameraUp;
 
 	// for picking
-	unsigned int _selectBuf[BUFSIZE];
-	int _mouseCursorX;
-	int _mouseCursorY;
-	DemoSceneMode _mode;
 	DemoSceneMouseState _mouseState;
 	IDemoClickableObject* _selectedChild;
+	DemoScenePickingRay* _pickingRay;
 
 	static std::map<unsigned int, DemoSceneObject* > _childrens;
 	static DemoScene* _instance;

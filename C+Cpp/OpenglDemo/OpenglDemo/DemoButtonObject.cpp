@@ -3,10 +3,8 @@
 #include "DemoButtonObject.h"
 
 
-DemoButtonObject::DemoButtonObject(DemoScene* parent, float x, float y, float z, 
-								   float dx, float dy, float dz)
-		: DemoSceneObject(parent, x, y, z), 
-		_dx(dx), _dy(dy), _dz(dz), _isPressed(false)
+DemoButtonObject::DemoButtonObject(DemoScene* parent, glm::vec3 worldPos, glm::vec3 geo)
+		: DemoSceneObject(parent, worldPos), _geo(geo)
 {
 	this->_painter = new DemoObjectPainter();
 }
@@ -19,19 +17,19 @@ DemoButtonObject::~DemoButtonObject()
 
 void DemoButtonObject::render()
 {
-	if(this->_isPressed)
+	if(this->_isMousePressed)
 	{
-		this->_painter->drawTextureBox(this->_x, this->_y, this->_z,
-			this->_dx, this->_dy, this->_dz,
-			0.9f, 0.9f, 1.0f,
-			this->_roll, this->_pitch, this->_yaw);
+		this->_painter->drawBox(this->_worldPos,
+			this->_geo,
+			glm::vec3(0.9f, 0.9f, 1.0f),
+			this->_worldRotation);
 	}
 	else
 	{
-		this->_painter->drawTextureBox(this->_x, this->_y, this->_z,
-			this->_dx, this->_dy, this->_dz,
-			1.0f, 1.0f, 1.0f,
-			this->_roll, this->_pitch, this->_yaw);
+		this->_painter->drawBox(this->_worldPos,
+			this->_geo,
+			glm::vec3(1.0f, 1.0f, 1.0f),
+			this->_worldRotation);
 	}
 }
 
@@ -40,18 +38,24 @@ void DemoButtonObject::update()
 
 }
 
-void DemoButtonObject::onPressed()
+void DemoButtonObject::onMousePressed()
 {
-	this->_isPressed = true;
+	IDemoClickableObject::onMousePressed();
 }
 
-void DemoButtonObject::onReleased()
+void DemoButtonObject::onMouseReleased()
 {
-	this->_isPressed = false;
-	this->_scene->createDemoObject(DemoScene::Box, rand()%20 * 1.0f - 10.0f, rand()%10 * 1.0f - 5.0f, -2.0f);
+	IDemoClickableObject::onMouseReleased();
+
+	this->_scene->createDemoObject(DemoScene::Box, glm::vec3(rand()%20 * 1.0f - 10.0f, rand()%10 * 1.0f - 5.0f, -2.0f));
 }
 
-void DemoButtonObject::onHover() 
+void DemoButtonObject::onMouseOver() 
+{
+
+}
+
+void DemoButtonObject::onMouseLeft()
 {
 
 }

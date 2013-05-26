@@ -2,6 +2,9 @@
 #include "DemoButtonObject.h"
 #include "DemoScene.h"
 #include "IDemoClickableObject.h"
+#include "DemoScenePickingRay.h"
+//#include "Vector3f.h"
+#include <cmath>
 #include <GL\glut.h>	// define after "stdlib"
 #include <iostream>
 
@@ -12,10 +15,12 @@ DemoScene* DemoScene::_instance = NULL;
 DemoScene::DemoScene() 
 	: _windowX(0), _windowY(0), 
 	_windowWidth(0), _windowHeight(0), _windowRatio(0.0f),
-	_mouseCursorX(0), _mouseCursorY(0),
-	_mode(DemoScene::Render), _mouseState(DemoScene::MouseUp),
-	_selectedChild(0)
+	_fovyAngle(45), _nearClipPanelDist(1.0f), _farClipPanelDist(1000.0f),
+	_cameraPos(glm::vec3(0.0f, 0.0f, 30.0f)), _cameraLookAt(glm::vec3(0.0f, 0.0f, 0.0f)), _cameraUp(glm::vec3(0.0f, 1.0f, 0.0f)),
+	_mouseState(DemoScene::MouseUp),
+	_selectedChild(0), _pickingRay(0)
 {
+	
 }
 
 DemoScene::~DemoScene()
@@ -71,6 +76,7 @@ void DemoScene::initCallBacks()
 	glutIdleFunc(DemoScene::updateScene);
 	glutKeyboardFunc(DemoScene::processNormalKeys);
 	glutMouseFunc(DemoScene::handleMouseEvent);
+	glutPassiveMotionFunc(DemoScene::handlePassiveMotionEvent);
 }
 
 void DemoScene::initRenderScene()
@@ -95,27 +101,14 @@ void DemoScene::renderScene()
 	glMatrixMode(GL_MODELVIEW);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	if(scene->_mode == DemoScene::Select)
-		scene->startPicking(scene->_mouseCursorX, scene->_mouseCursorY);
-
 	glLoadIdentity();
 	// setup camera
-	gluLookAt(0.0f, 0.0f, -30.0f,
-		0.0f, 0.0f, -1.0f,
+	gluLookAt(0.0f, 0.0f, 30.0f,
+		0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f);
 
 	scene->drawScene();
-
-	if(scene->_mode == DemoScene::Select)
-	{
-		unsigned int pickedId = scene->stopPicking();
-		scene->processPicking(pickedId);
-		scene->_mode = DemoScene::Render;
-	}
-	else
-	{
-		glutSwapBuffers();
-	}
+	glutSwapBuffers();
 }
 
 void DemoScene::drawScene()
@@ -145,7 +138,7 @@ void DemoScene::sceneResize(int width, int height)
 	// Set the viewport to be the entire window
 	glViewport(0, 0, width, height);
 	// Set the correct perspective.
-	gluPerspective(45, scene->_windowRatio , 1 , 1000);
+	gluPerspective(scene->_fovyAngle, scene->_windowRatio , scene->_nearClipPanelDist, scene->_farClipPanelDist);
 	// Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW);
 }
@@ -186,48 +179,33 @@ void DemoScene::handleMouseEvent(int button, int state, int x, int y)
 		scene->_mouseState = DemoScene::MouseDown;
 		break;
 	case GLUT_UP:
-		scene->_mouseState = DemoScene::MouseUp;
-		break;
+		{
+			scene->_mouseState = DemoScene::MouseUp;
+			DemoScenePickingRay* pickRay = scene->getPickingRay();
+			pickRay->calculatePickingRay(x, y);
+			glm::vec3 hitPointVec = pickRay->getHitPointOnScreen();
+			scene->createDemoObject(DemoScene::Box, hitPointVec);
+			break;
+		}
 	default:
 		scene->_mouseState = DemoScene::MouseUp;
 		break;
 	}
-	scene->_mouseCursorX = x;
-	scene->_mouseCursorY = y;
-	scene->_mode = DemoScene::Select;
 	glutPostRedisplay(); 
 }
 
-void DemoScene::startPicking(int cursorX, int cursorY)
+void DemoScene::handlePassiveMotionEvent(int x, int y)
 {
-	GLint viewport[4];
 
-	glSelectBuffer(BUFSIZE, this->_selectBuf);
-	glRenderMode(GL_SELECT);
-
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-
-	glGetIntegerv(GL_VIEWPORT, viewport);
-	gluPickMatrix(cursorX, viewport[3]-cursorY, 0.01f, 0.01f, viewport);
-	gluPerspective(45.0f, this->_windowRatio , 1.0f, 1000.0f);
-	glMatrixMode(GL_MODELVIEW);
-	glInitNames();
 }
 
-unsigned int DemoScene::stopPicking()
+DemoScenePickingRay* DemoScene::getPickingRay()
 {
-	int hits;
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
-	glFlush();
-	
-	hits = glRenderMode(GL_RENDER);
-	if (hits != 0)
-		return this->_selectBuf[3];	// only return the first-hit object id
-	return 0;
+	if(this->_pickingRay == NULL)
+		this->_pickingRay = new DemoScenePickingRay(this->_cameraPos, this->_cameraLookAt, this->_cameraUp,
+													this->_fovyAngle, this->_nearClipPanelDist, 
+													this->_windowWidth, this->_windowHeight, this->_windowRatio);
+	return this->_pickingRay;
 }
 
 void DemoScene::processPicking(unsigned int pickedId)
@@ -238,7 +216,7 @@ void DemoScene::processPicking(unsigned int pickedId)
 		if (this->_selectedChild != NULL
 			&& this->_mouseState == DemoScene::MouseUp)
 		{
-			this->_selectedChild->onReleased();
+			this->_selectedChild->onMouseReleased();
 			this->_selectedChild = NULL;
 		}
 		return;
@@ -257,27 +235,27 @@ void DemoScene::processPicking(unsigned int pickedId)
 	switch (this->_mouseState)
 	{
 	case DemoScene::MouseDown:
-		clickableObject->onPressed();
+		clickableObject->onMousePressed();
 		this->_selectedChild = clickableObject;
 		break;
 	case DemoScene::MouseUp:
 		if(this->_selectedChild != NULL)
-			this->_selectedChild->onReleased();
+			this->_selectedChild->onMouseReleased();
 		this->_selectedChild = NULL;
 		break;
 	}
 }
 
-DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, float y, float z)
+DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, glm::vec3 worldPos)
 {
 	DemoSceneObject* sceneObject = NULL;
 	switch (type)
 	{
 	case DemoScene::Box:
-		sceneObject = new DemoBoxObject(this, x, y, z); 
+		sceneObject = new DemoBoxObject(this, worldPos); 
 		break;
 	case DemoScene::Button:
-		sceneObject = new DemoButtonObject(this, x, y, z);
+		sceneObject = new DemoButtonObject(this, worldPos);
 		break;
 	default:
 		return NULL;
@@ -285,6 +263,11 @@ DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, 
 	}
 	addObjectToScene(sceneObject);
 	return sceneObject;
+}
+
+DemoSceneObject* DemoScene::createDemoObject(DemoSceneObjectType type, float x, float y, float z)
+{
+	return this->createDemoObject(type, glm::vec3(x, y, z));
 }
 
 void DemoScene::removeDemoObject(DemoSceneObject* object)

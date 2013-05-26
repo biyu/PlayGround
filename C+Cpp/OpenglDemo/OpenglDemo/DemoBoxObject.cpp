@@ -5,16 +5,14 @@
 #include <time.h>
 #include <GL\glut.h>
 
-DemoBoxObject::DemoBoxObject(DemoScene* parent, float x, float y, float z,
-							 float dx, float dy, float dz)
-	: DemoSceneObject(parent, x, y, z), _dx(dx), _dy(dy), _dz(dz)
+DemoBoxObject::DemoBoxObject(DemoScene* parent, glm::vec3 worldPos, glm::vec3 geo)
+	: DemoSceneObject(parent, worldPos), _geo(geo)
 {
 	this->_isClockwise = (rand()%100+1) > 50 ? true : false;
 	this->_painter = new DemoObjectPainter();
 
-	this->setRollSpd(this->_isClockwise ? 0.2f : -0.2f);
-	this->setPitchSpd(this->_isClockwise ? 0.4f : -0.4f);
-	this->setYawSpd(this->_isClockwise ? 0.6f : -0.6f);
+	glm::vec3 rotationSpdVec = glm::vec3(0.2f, 0.4f, 0.6f);
+	this->_worldRotationSpd = this->_isClockwise ? rotationSpdVec : -rotationSpdVec;
 }
 
 DemoBoxObject::~DemoBoxObject()
@@ -23,29 +21,43 @@ DemoBoxObject::~DemoBoxObject()
 
 void DemoBoxObject::render()
 {
-	_painter->drawBox(this->_x, this->_y, this->_z,
-		this->_dx, this->_dy, this->_dz,
-		this->_roll, this->_pitch, this->_yaw);
+	_painter->drawBox(this->_worldPos, this->_geo, this->_worldRotation);
 }
 
 void DemoBoxObject::update()
 {
-	this->_roll += this->getRollSpd();
-	this->_pitch += this->getPitchSpd();
-	this->_yaw += this->getYawSpd();
+	this->_worldRotation += this->_worldRotationSpd;
 }
 
-void DemoBoxObject::onPressed()
+void DemoBoxObject::onMousePressed()
 {
-	this->_rollSpd *= 10;
-	this->_pitchSpd *= 10;
-	this->_yawSpd *= 10;
+	IDemoClickableObject::onMousePressed();
 }
 
-void DemoBoxObject::onReleased()
+void DemoBoxObject::onMouseReleased()
 {
+	IDemoClickableObject::onMouseReleased();
+
 	DemoScene* parent = this->_scene;
 	if(parent == NULL)
 		return;
 	parent->removeDemoObject(this);
+}
+
+void DemoBoxObject::onMouseOver()
+{
+	if(!this->_isMouseOver)
+	{
+		this->_worldRotationSpd *= 8;
+	}
+	IDemoClickableObject::onMouseOver();
+}
+
+void DemoBoxObject::onMouseLeft()
+{
+	if(this->_isMouseOver)
+	{
+		this->_worldRotationSpd /= 8;
+	}
+	IDemoClickableObject::onMouseLeft();
 }
