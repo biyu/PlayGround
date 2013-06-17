@@ -23,11 +23,13 @@ public:
 
 public:	// getter and setter
 	glm::vec3 getWorldPos() const { return this->_worldPos; }
+	glm::vec3 getWorldScale() const { return this->_worldScale; }
 	glm::vec3 getWorldRotation() const { return this->_worldRotation; }
 	glm::vec3 getWorldRotationSpd() const { return this->_worldRotationSpd; }
 	unsigned int getId() const { return this->_id; }
 	
 	void setWorldPos(glm::vec3 newPos) { this->_worldPos = newPos; }
+	void setWorldScale(glm::vec3 newScale) { this->_worldScale = newScale; }
 	void setWorldRotation(glm::vec3 newRotation) { this->_worldRotation = newRotation; }
 	void setWorldRotationSpd(glm::vec3 newRotationSpd) { this->_worldRotationSpd = newRotationSpd; }
 
@@ -36,10 +38,13 @@ public:
 	virtual void update() = 0;
 
 protected:
+	// transform members
 	glm::vec3 _worldPos;
 	glm::vec3 _worldScale;
 	glm::vec3 _worldRotation;
 	glm::vec3 _worldRotationSpd;
+	
+
 	unsigned int _id;
 	DemoScene* _scene;
 };

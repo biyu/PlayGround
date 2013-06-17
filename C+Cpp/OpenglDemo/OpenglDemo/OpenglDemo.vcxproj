@@ -27,6 +27,11 @@
     <ClInclude Include="DemoScene.h" />
     <ClInclude Include="DemoSceneObject.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{752390EE-20D7-410C-B55E-1EDE14F45E8F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

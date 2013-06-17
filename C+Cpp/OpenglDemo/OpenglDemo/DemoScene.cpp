@@ -82,8 +82,9 @@ void DemoScene::initCallBacks()
 void DemoScene::initRenderScene()
 {
 	glClearColor(0, 0, 0, 0);
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_BACK);
+	glEnable(GL_DEPTH);
 	glEnable(GL_DEPTH_TEST);
 	glClearDepth(1.0f);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);

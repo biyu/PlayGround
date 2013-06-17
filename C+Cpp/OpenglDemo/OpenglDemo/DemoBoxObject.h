@@ -31,6 +31,7 @@ private:
 	// box specific members
 	glm::vec3 _geo;	// lenght in x, y, z
 
+
 	bool _isClockwise;
 	DemoObjectPainter* _painter;
 };
