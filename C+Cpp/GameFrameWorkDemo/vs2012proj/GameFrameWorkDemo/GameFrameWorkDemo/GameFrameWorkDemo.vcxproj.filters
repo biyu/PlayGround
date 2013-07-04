@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Demos">
       <UniqueIdentifier>{d4a75c3f-9a95-4058-8bc4-f14f717f6798}</UniqueIdentifier>
     </Filter>
@@ -14,8 +10,71 @@
     <Filter Include="Game">
       <UniqueIdentifier>{28f8b25a-a01e-40cc-9768-765cf5ae0dc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{9b5e066c-c0b3-4f3f-a5f7-f0ab612b02e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{5afef2e0-4848-4723-8e3d-b327fd5abf3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demos\TestDemos">
+      <UniqueIdentifier>{097d4ba2-17df-4a2d-aa5c-40c0317bb0c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Main.cpp" />
+    <ClCompile Include="..\..\..\src\Graphics\GraphicsRenderBackend.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Graphics\OpenGLRenderBackend.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Game\GameStage.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Game\GameObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Demos\TestDemos\GameStageTestDemo.cpp">
+      <Filter>Demos\TestDemos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Game\GameSprite2D.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Graphics\Texture2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\Graphics\GraphicsRenderBackend.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Graphics\IGraphicsRenderCallbacks.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Graphics\OpenGLRenderBackend.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Util\Common.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Game\GameStage.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Game\GameObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Util\Constants.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Demos\TestDemos\GameStageTestDemo.h">
+      <Filter>Demos\TestDemos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Game\GameSprite2D.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Graphics\Texture2D.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
 </Project>
