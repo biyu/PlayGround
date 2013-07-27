@@ -6,7 +6,7 @@ public class BasicSkillPanelManager : MonoBehaviour {
 	public BasicSkillToggleIcon[] SkillIcons;
 	
 	// Use this for initialization
-	private void Start ()
+	private void Awake ()
 	{
 		this.SkillIcons = this.gameObject.GetComponentsInChildren<BasicSkillToggleIcon>();
 	}
