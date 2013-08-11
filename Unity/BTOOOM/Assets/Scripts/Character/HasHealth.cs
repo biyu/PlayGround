@@ -13,6 +13,13 @@ public class HasHealth : MonoBehaviour
 	public float HealthBarXOffset = -58;
 	public float HealthBarYOffset = -145;
 	
+	private Destroy DestroyEffect = null;
+	
+	private void Start()
+	{
+		this.DestroyEffect = this.GetComponent<Destroy>();
+	}
+	
 	public void AddHealth(int amount)
 	{
 		this.CurrentHealth = Mathf.Min(this.MaxHealth, this.CurrentHealth + amount);
@@ -30,6 +37,10 @@ public class HasHealth : MonoBehaviour
 			this.ShowHealthBar = true;
 		else 
 			this.ShowHealthBar = false;
+		if (CurrentHealth <= 0 && this.DestroyEffect != null && !this.DestroyEffect.Dying)
+		{
+			this.DestroyEffect.Die();
+		}
 	}
 	
 	private void OnGUI()

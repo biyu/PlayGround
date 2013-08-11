@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Bomb\BombActions.cs" />
      <Compile Include="Assets\Scripts\Bomb\ImpulsiveBombActions.cs" />
      <Compile Include="Assets\Scripts\Bomb\TraceBombActions.cs" />
+     <Compile Include="Assets\Scripts\Character\AimerControl.cs" />
      <Compile Include="Assets\Scripts\Character\Attribute.cs" />
      <Compile Include="Assets\Scripts\Character\AttributeAffectStat.cs" />
      <Compile Include="Assets\Scripts\Character\BasicCharacter.cs" />
@@ -55,9 +56,14 @@
      <Compile Include="Assets\Scripts\Character\BasicSkill.cs" />
      <Compile Include="Assets\Scripts\Character\BasicSkillPanelManager.cs" />
      <Compile Include="Assets\Scripts\Character\BasicSkillToggleIcon.cs" />
+     <Compile Include="Assets\Scripts\Character\BoxDestroy.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterEditor.cs" />
+     <Compile Include="Assets\Scripts\Character\Destroy.cs" />
+     <Compile Include="Assets\Scripts\Character\EnemyDestroy.cs" />
      <Compile Include="Assets\Scripts\Character\HasHealth.cs" />
+     <Compile Include="Assets\Scripts\Character\ScanControl.cs" />
      <Compile Include="Assets\Scripts\Game\GameSettings.cs" />
+     <Compile Include="Assets\Scripts\Item\Item.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
